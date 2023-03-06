@@ -1,6 +1,11 @@
 // variables
-$form-background-color: #120e43;
-$logo-color: #6a1b4d;
+$form-background-color: #3ca6a6;
+$logo-color: #026773;
+$sidebar-color: #012e40;
+$text-color: #ddddf7;
+$navbar-background: #024959;
+$light-color: lightgray;
+
 // @mixins
 @mixin flex-center {
   display: flex;
@@ -37,10 +42,11 @@ body {
       color: $logo-color;
       font-size: 24px;
       font-weight: bold;
+      letter-spacing: 2px;
     }
 
     .title {
-      font-size: 12px;
+      font-size: 16px;
       color: $logo-color;
     }
 
@@ -56,6 +62,7 @@ body {
         border-bottom: 1px solid $form-background-color;
         font-size: 16px;
         font-weight: bold;
+        background-color: transparent;
 
         &::placeholder {
           color: rgb(175, 175, 175);
@@ -94,9 +101,126 @@ body {
 
     p {
       color: $form-background-color;
-      font-size: 12px;
+      font-size: 14px;
+      font-weight: bold;
       margin-top: 10px;
       cursor: pointer;
+    }
+  }
+}
+
+// home page and its components
+
+.home {
+  background-color: $form-background-color;
+  @include flex-center();
+  height: 100vh;
+
+  .container {
+    border: 1px solid white;
+    border-radius: 10px;
+    width: 65%;
+    height: 80%;
+    display: flex;
+    overflow: hidden;
+
+    // Sidebar component
+    .sidebar {
+      flex: 1;
+      background-color: $sidebar-color;
+      overflow-y: auto;
+      overflow-x: hidden;
+
+      .navbar {
+        @include flex-center();
+        justify-content: space-between;
+        background-color: $navbar-background;
+        height: 50px;
+        padding: 10px;
+        color: $text-color;
+
+        .logo {
+          font-weight: bold;
+        }
+
+        .user {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+
+          img {
+            background-color: $text-color;
+            height: 24px;
+            width: 24px;
+            border-radius: 50%;
+            object-fit: cover;
+          }
+
+          button {
+            background-color: $form-background-color;
+            color: $text-color;
+            font-size: 10px;
+            padding: 5px;
+            border: none;
+            cursor: pointer;
+          }
+        }
+      }
+
+      .search {
+        border-bottom: 1px solid gray;
+
+        .searchForm {
+          padding: 10px;
+
+          input {
+            background-color: transparent;
+            border: none;
+            color: white;
+            outline: none;
+            font-size: 16px;
+
+            &::placeholder {
+              color: $light-color;
+            }
+          }
+        }
+      }
+
+      .userChat {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        gap: 10px;
+        cursor: pointer;
+        color: white;
+
+        &:hover {
+          background-color: $navbar-background;
+        }
+        img {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+
+        .userChatInfo {
+          span {
+            font-size: 18px;
+            font-weight: 500;
+          }
+
+          p {
+            font-size: 14px;
+            color: $light-color;
+          }
+        }
+      }
+    }
+
+    .chat {
+      flex: 2;
     }
   }
 }
