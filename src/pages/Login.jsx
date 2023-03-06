@@ -7,7 +7,6 @@ const Login = function () {
         <form>
           <input type="email" placeholder="email" />
           <input type="password" placeholder="password" />
-          <input type="file" id="file" className="file-upload" />
           <button>Sign In</button>
         </form>
         <p>Don't have an account: Register</p>

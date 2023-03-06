@@ -1,7 +1,13 @@
+import Chat from "../components/Chat";
+import Sidebar from "../components/Sidebar";
+
 const Home = function () {
   return (
-    <div>
-      <h1>Home</h1>
+    <div className="home">
+      <div className="container">
+        <Sidebar />
+        <Chat />
+      </div>
     </div>
   );
 };
