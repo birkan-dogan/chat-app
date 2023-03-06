@@ -1,7 +1,17 @@
 const Login = function () {
   return (
-    <div>
-      <h1>Login</h1>
+    <div className="formContainer">
+      <div className="formWrapper">
+        <span className="logo">Chat App</span>
+        <span className="title">Login</span>
+        <form>
+          <input type="email" placeholder="email" />
+          <input type="password" placeholder="password" />
+          <input type="file" id="file" className="file-upload" />
+          <button>Sign In</button>
+        </form>
+        <p>Don't have an account: Register</p>
+      </div>
     </div>
   );
 };

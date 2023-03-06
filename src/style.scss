@@ -1,0 +1,102 @@
+// variables
+$form-background-color: #120e43;
+$logo-color: #6a1b4d;
+// @mixins
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// general settings
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+// Register/Login form
+.formContainer {
+  background-color: $form-background-color;
+  height: 100vh;
+  @include flex-center();
+
+  .formWrapper {
+    background-color: white;
+    padding: 20px 60px;
+    border-radius: 10px;
+    @include flex-center();
+    flex-direction: column;
+    gap: 10px;
+
+    .logo {
+      color: $logo-color;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .title {
+      font-size: 12px;
+      color: $logo-color;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+
+      input {
+        padding: 15px;
+        border: none;
+        width: 250px;
+        border-bottom: 1px solid $form-background-color;
+        font-size: 16px;
+        font-weight: bold;
+
+        &::placeholder {
+          color: rgb(175, 175, 175);
+        }
+        &:focus {
+          outline: none;
+        }
+      }
+
+      .file-upload {
+        display: none;
+      }
+
+      button {
+        background-color: $logo-color;
+        color: white;
+        padding: 10px;
+        font-weight: bold;
+        border: none;
+        cursor: pointer;
+      }
+
+      label {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: $logo-color;
+        font-size: 12px;
+        cursor: pointer;
+
+        img {
+          width: 44px;
+        }
+      }
+    }
+
+    p {
+      color: $form-background-color;
+      font-size: 12px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+  }
+}

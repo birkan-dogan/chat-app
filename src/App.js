@@ -1,7 +1,13 @@
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import "./style.scss";
+
 function App() {
   return (
     <div>
-      <h1>Chat App</h1>
+      {/* I will use react-router later */}
+      <Register />
+      <Login />
     </div>
   );
 }
