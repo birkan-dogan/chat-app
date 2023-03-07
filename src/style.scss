@@ -1,10 +1,11 @@
 // variables
-$form-background-color: #3ca6a6;
-$logo-color: #026773;
-$sidebar-color: #012e40;
+$form-background-color: #5da3fa;
+$logo-color: #2c3333;
+$sidebar-color: #1c8d73;
 $text-color: #ddddf7;
-$navbar-background: #024959;
+$navbar-background: #4d455d;
 $light-color: lightgray;
+$message-color: #207398;
 
 // @mixins
 @mixin flex-center {
@@ -158,7 +159,7 @@ body {
 
           button {
             background-color: $form-background-color;
-            color: $text-color;
+            color: #222222;
             font-size: 10px;
             padding: 5px;
             border: none;
@@ -221,6 +222,73 @@ body {
 
     .chat {
       flex: 2;
+
+      .chatInfo {
+        height: 50px;
+        background-color: $logo-color;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+        color: $light-color;
+        font-weight: bold;
+      }
+
+      .chatIcons {
+        display: flex;
+        gap: 10px;
+
+        img {
+          height: 24px;
+          cursor: pointer;
+        }
+      }
+
+      .messages {
+        background-color: $message-color;
+        padding: 10px;
+        height: calc(100% - 100px);
+        overflow-y: auto;
+      }
+
+      .input {
+        height: 50px;
+        background-color: white;
+        padding: 10px;
+        @include flex-center();
+        justify-content: space-between;
+
+        input {
+          border: none;
+          width: 100%;
+          padding: 5px;
+          outline: none;
+          color: #222222;
+          font-size: 18px;
+
+          &::placeholder {
+            color: $light-color;
+          }
+        }
+        .send {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+
+          img {
+            height: 24px;
+            cursor: pointer;
+          }
+
+          button {
+            border: none;
+            padding: 10px 15px;
+            color: white;
+            background-color: $logo-color;
+            cursor: pointer;
+          }
+        }
+      }
     }
   }
 }
