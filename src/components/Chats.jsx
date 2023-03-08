@@ -1,37 +1,29 @@
+import { useEffect, useState } from "react";
+import { useAuthContext } from "../context/AuthContext";
+import { getChats } from "../firebase";
+
 const Chats = () => {
+  const [chats, setChats] = useState([]);
+  const { currentUser } = useAuthContext();
+
+  useEffect(() => {
+    // to see realtime updates on firestore, we can use onSnapshot() method
+
+    currentUser.uid && getChats(currentUser.uid, setChats);
+  }, [currentUser.uid]);
   return (
     <div className="chats">
       {/* data will come from firestore */}
-      <div className="userChat">
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
-          alt=""
-        />
-        <div className="userChatInfo">
-          <span>Hank</span>
-          <p>Hello</p> {/* latest message comes here */}
+      {Object.entries(chats)?.map((chat) => (
+        <div className="userChat" key={chat[0]}>
+          <img src={chat[1].userInfo.photoURL} alt="" />
+          <div className="userChatInfo">
+            <span>{chat[1].userInfo.displayName}</span>
+            <p>{chat[1].userInfo.lastMessage?.text}</p>{" "}
+            {/* latest message comes here */}
+          </div>
         </div>
-      </div>
-      <div className="userChat">
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
-          alt=""
-        />
-        <div className="userChatInfo">
-          <span>Hank</span>
-          <p>Hello</p> {/* latest message comes here */}
-        </div>
-      </div>
-      <div className="userChat">
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
-          alt=""
-        />
-        <div className="userChatInfo">
-          <span>Hank</span>
-          <p>Hello</p> {/* latest message comes here */}
-        </div>
-      </div>
+      ))}
     </div>
   );
 };

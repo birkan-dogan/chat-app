@@ -25,6 +25,7 @@ import {
   where,
   updateDoc,
   serverTimestamp,
+  onSnapshot,
 } from "firebase/firestore";
 
 const firebaseConfig = {
@@ -159,4 +160,13 @@ export const chatWorks = async function (user, currentUser) {
       });
     }
   } catch (error) {}
+};
+
+// to see realtime updates on firestore, we can use onSnapshot() method
+// docs: https://firebase.google.com/docs/firestore/query-data/listen
+
+export const getChats = function (currentUser, setChats) {
+  onSnapshot(doc(db, "userChats", currentUser), (doc) => {
+    setChats(doc.data());
+  });
 };
