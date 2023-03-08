@@ -19,9 +19,12 @@ import {
   setDoc,
   getFirestore,
   getDocs,
+  getDoc,
   query,
   collection,
   where,
+  updateDoc,
+  serverTimestamp,
 } from "firebase/firestore";
 
 const firebaseConfig = {
@@ -118,4 +121,42 @@ export const friends = async function (username, setUser) {
   } catch (error) {
     console.log(error);
   }
+};
+
+// creating chats collection and making ready the app for communication
+
+export const chatWorks = async function (user, currentUser) {
+  // check whether the group(chats in firestore) exists, if not create
+
+  const combinedId = currentUser.uid + user.uid;
+
+  try {
+    const res = await getDoc(doc(db, "chats", combinedId));
+
+    if (!res.exists()) {
+      // create a chat in chats collection
+      await setDoc(doc(db, "chats", combinedId), { messages: [] });
+
+      // update process: https://firebase.google.com/docs/firestore/manage-data/add-data#update_fields_in_nested_objects
+      // create user chats
+
+      await updateDoc(doc(db, "userChats", currentUser.uid), {
+        [combinedId + ".userInfo"]: {
+          uid: user.uid,
+          displayName: user.displayName,
+          photoURL: user.photoURL,
+        },
+        [combinedId + ".date"]: serverTimestamp(),
+      });
+
+      await updateDoc(doc(db, "userChats", user.uid), {
+        [combinedId + ".userInfo"]: {
+          uid: currentUser.uid,
+          displayName: currentUser.displayName,
+          photoURL: currentUser.photoURL,
+        },
+        [combinedId + ".date"]: serverTimestamp(),
+      });
+    }
+  } catch (error) {}
 };
