@@ -1,15 +1,24 @@
+import { signOut } from "firebase/auth";
+import { useAuthContext } from "../context/AuthContext";
+import { auth } from "../firebase";
+
 const Navbar = function () {
+  const { currentUser } = useAuthContext(); // consuming context
+
+  const name = currentUser.displayName.toLowerCase();
   return (
     <div className="navbar">
       <span className="logo">Chat App</span>
       <div className="user">
-        {/* this will come from firestore */}
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
-          alt=""
-        />
-        <span>Birkan</span>
-        <button>Logout</button>
+        <img src={currentUser.photoURL} alt="" />
+        <span>{name[0].toUpperCase() + name.slice(1, name.length)}</span>
+        <button
+          onClick={() => {
+            signOut(auth);
+          }}
+        >
+          Logout
+        </button>
       </div>
     </div>
   );
