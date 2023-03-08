@@ -14,7 +14,15 @@ import {
   getDownloadURL,
 } from "firebase/storage";
 
-import { doc, setDoc, getFirestore } from "firebase/firestore";
+import {
+  doc,
+  setDoc,
+  getFirestore,
+  getDocs,
+  query,
+  collection,
+  where,
+} from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_apiKey,
@@ -94,4 +102,20 @@ export const signIn = function (email, password, navigate) {
     .catch((error) => {
       console.log(error.message);
     });
+};
+
+// queries on Firebase --> https://firebase.google.com/docs/firestore/query-data/queries#web-version-9
+
+export const friends = async function (username, setUser) {
+  const usersRef = query(
+    collection(db, "users"),
+    where("displayName", "==", username)
+  );
+
+  try {
+    const querySnapshot = await getDocs(usersRef);
+    querySnapshot.forEach((doc) => setUser(doc.data()));
+  } catch (error) {
+    console.log(error);
+  }
 };
