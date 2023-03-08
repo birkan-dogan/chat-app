@@ -1,11 +1,11 @@
 // variables
-$form-background-color: #5da3fa;
-$logo-color: #2c3333;
-$sidebar-color: #1c8d73;
+$form-background-color: #03203c;
+$logo-color: #3a3a3a;
+$sidebar-color: #075e54;
 $text-color: #ddddf7;
-$navbar-background: #4d455d;
+$navbar-background: #128c7e;
 $light-color: lightgray;
-$message-color: #207398;
+$message-color: #34b7f1;
 
 // @mixins
 @mixin flex-center {
@@ -106,6 +106,12 @@ body {
       font-weight: bold;
       margin-top: 10px;
       cursor: pointer;
+
+      a {
+        text-decoration: underline wavy;
+        text-underline-offset: 10px;
+        color: $form-background-color;
+      }
     }
   }
 }
@@ -159,7 +165,7 @@ body {
 
           button {
             background-color: $form-background-color;
-            color: #222222;
+            color: #f2f2f2;
             font-size: 10px;
             padding: 5px;
             border: none;
@@ -268,8 +274,8 @@ body {
             }
 
             span {
-              opacity: 0.5;
-              color: $light-color;
+              opacity: 0.7;
+              color: #222222;
               font-weight: 300;
             }
           }
@@ -281,10 +287,14 @@ body {
             gap: 10px;
 
             p {
-              background-color: white;
+              background-color: $form-background-color;
+              color: #f3f3f3;
+              opacity: 0.9;
               padding: 10px 20px;
               border-radius: 0px 10px 10px 10px;
-              max-width: max-content;
+              max-width: 250px;
+              overflow-wrap: break-word;
+              line-height: 20px;
             }
             img {
               width: 50%;
