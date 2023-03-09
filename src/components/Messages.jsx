@@ -10,6 +10,7 @@ const Messages = function () {
   useEffect(() => {
     data.chatId && getMessages(data, setMessages);
   }, [data.chatId]);
+  console.log(messages);
 
   return (
     <div className="messages">

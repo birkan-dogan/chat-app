@@ -1,14 +1,17 @@
-import Add from "../images/addAvatar.png";
+import Add from "../images/addAvatar.svg";
 import { signUp } from "../firebase";
+import { useNavigate, Link } from "react-router-dom";
 
 const Register = function () {
+  const navigate = useNavigate();
+
   const handleSubmit = function (e) {
     e.preventDefault();
     const displayName = e.target[0].value;
     const email = e.target[1].value;
     const password = e.target[2].value;
     const file = e.target[3].files[0];
-    signUp(email, password, displayName, file); // creating user with image
+    signUp(email, password, displayName, file, navigate); // creating user with image
   };
 
   return (
@@ -27,7 +30,9 @@ const Register = function () {
           </label>
           <button>Sign Up</button>
         </form>
-        <p>One of us? Login</p>
+        <p>
+          One of us? <Link to="/login">Login</Link>
+        </p>
       </div>
     </div>
   );
