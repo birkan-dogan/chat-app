@@ -26,6 +26,8 @@ import {
   updateDoc,
   serverTimestamp,
   onSnapshot,
+  arrayUnion,
+  Timestamp,
 } from "firebase/firestore";
 
 const firebaseConfig = {
@@ -168,5 +170,13 @@ export const chatWorks = async function (user, currentUser) {
 export const getChats = function (currentUser, setChats) {
   onSnapshot(doc(db, "userChats", currentUser), (doc) => {
     setChats(doc.data());
+  });
+};
+
+// taking messages from chats db
+
+export const getMessages = function (data, setMessages) {
+  onSnapshot(doc(db, "chats", data.chatId), (doc) => {
+    doc.exists() && setMessages(doc.data().messages);
   });
 };
