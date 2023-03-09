@@ -180,3 +180,56 @@ export const getMessages = function (data, setMessages) {
     doc.exists() && setMessages(doc.data().messages);
   });
 };
+
+// send message logic
+export const sendMessage = async function (text, currentUser, data) {
+  // if (img) {
+  //   const storageRef = ref(storage, Math.random() * 10 * 100);
+
+  //   const uploadTask = uploadBytesResumable(storageRef, img);
+
+  //   uploadTask.on(
+  //     (error) => {
+  //       console.log(error);
+  //     },
+
+  //     () => {
+  //       getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
+  //         await updateDoc(doc(db, "chats", data.chatId), {
+  //           messages: arrayUnion({
+  //             id: Math.random() * 10 * 100,
+  //             text,
+  //             senderId: currentUser.uid,
+  //             date: Timestamp.now(),
+  //             img: downloadURL,
+  //           }),
+  //         });
+  //       });
+  //     }
+  //   );
+  // } else {
+  await updateDoc(doc(db, "chats", data.chatId), {
+    messages: arrayUnion({
+      id: Math.random() * 10 * 100,
+      text,
+      senderId: currentUser.uid,
+      date: Timestamp.now(),
+    }),
+  });
+  // }
+
+  await updateDoc(doc(db, "userChats", currentUser.uid), {
+    [data.chatId + ".lastMessage"]: {
+      text,
+    },
+    [data.chatId + ".date"]: serverTimestamp(),
+  });
+
+  // same thing for the other user
+  await updateDoc(doc(db, "userChats", data.user.uid), {
+    [data.chatId + ".lastMessage"]: {
+      text,
+    },
+    [data.chatId + ".date"]: serverTimestamp(),
+  });
+};
