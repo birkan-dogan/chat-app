@@ -1,5 +1,6 @@
+import { signInWithEmailAndPassword } from "firebase/auth";
 import { Link, useNavigate } from "react-router-dom";
-import { signIn } from "../firebase";
+import { auth } from "../firebase";
 
 const Login = function () {
   const navigate = useNavigate();
@@ -9,7 +10,12 @@ const Login = function () {
     const email = e.target[0].value;
     const password = e.target[1].value;
 
-    signIn(email, password, navigate);
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
