@@ -1,6 +1,7 @@
+import { doc, onSnapshot } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { useChatContext } from "../context/ChatContext";
-import { getMessages } from "../firebase";
+import { db } from "../firebase";
 import Message from "./Message";
 
 const Messages = function () {
@@ -8,9 +9,14 @@ const Messages = function () {
   const { data } = useChatContext();
 
   useEffect(() => {
-    data.chatId && getMessages(data, setMessages);
+    const unsub = onSnapshot(doc(db, "chats", data.chatId), (doc) => {
+      doc.exists() && setMessages(doc.data().messages);
+    });
+
+    return () => {
+      unsub();
+    };
   }, [data.chatId]);
-  console.log(messages);
 
   return (
     <div className="messages">

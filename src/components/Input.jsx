@@ -3,7 +3,14 @@ import Attach from "../images/attach.png";
 import { useAuthContext } from "../context/AuthContext";
 import { useChatContext } from "../context/ChatContext";
 import { useState } from "react";
-import { sendMessage } from "../firebase";
+import {
+  arrayUnion,
+  doc,
+  serverTimestamp,
+  Timestamp,
+  updateDoc,
+} from "firebase/firestore";
+import { db } from "../firebase";
 
 const Input = function () {
   const [text, setText] = useState("");
@@ -11,9 +18,32 @@ const Input = function () {
   const { currentUser } = useAuthContext();
   const { data } = useChatContext();
 
-  const handleSubmit = function (e) {
+  const handleSubmit = async function (e) {
     e.preventDefault();
-    sendMessage(text, currentUser, data);
+
+    await updateDoc(doc(db, "chats", data.chatId), {
+      messages: arrayUnion({
+        id: Math.random() * 10 * 100,
+        text,
+        senderId: currentUser.uid,
+        date: Timestamp.now(),
+      }),
+    });
+
+    await updateDoc(doc(db, "userChats", currentUser.uid), {
+      [data.chatId + ".lastMessage"]: {
+        text,
+      },
+      [data.chatId + ".date"]: serverTimestamp(),
+    });
+
+    await updateDoc(doc(db, "userChats", data.user.uid), {
+      [data.chatId + ".lastMessage"]: {
+        text,
+      },
+      [data.chatId + ".date"]: serverTimestamp(),
+    });
+
     setText("");
   };
 
