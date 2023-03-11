@@ -1,22 +1,86 @@
 import { useState } from "react";
-import { chatWorks, friends } from "../firebase";
 import { useAuthContext } from "../context/AuthContext"; // need the currentUser.uid
+import { db } from "../firebase";
+import {
+  collection,
+  doc,
+  getDoc,
+  getDocs,
+  query,
+  serverTimestamp,
+  setDoc,
+  updateDoc,
+  where,
+} from "firebase/firestore";
 
 const Search = function () {
   const [username, setUsername] = useState(""); // for input
   const [user, setUser] = useState(null);
   const { currentUser } = useAuthContext();
 
-  const handleSearch = function () {
-    friends(username, setUser);
+  const handleSearch = async function () {
+    // queries on Firebase --> https://firebase.google.com/docs/firestore/query-data/queries#web-version-9
+
+    const usersRef = query(
+      collection(db, "users"),
+      where("displayName", "==", username)
+    );
+
+    try {
+      const querySnapshot = await getDocs(usersRef);
+      querySnapshot.forEach((doc) => setUser(doc.data()));
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const handleKey = function (e) {
     e.code === "Enter" && handleSearch();
   };
 
-  const handleSelect = function () {
-    chatWorks(user, currentUser);
+  const handleSelect = async function () {
+    // check whether the group(chats in firestore) exists, if not create
+
+    const combinedId = currentUser.uid + user.uid;
+
+    try {
+      const res = await getDoc(doc(db, "chats", combinedId));
+
+      if (!res.exists()) {
+        // create a chat in chats collection
+        await setDoc(doc(db, "chats", combinedId), { messages: [] });
+
+        // update process: https://firebase.google.com/docs/firestore/manage-data/add-data#update_fields_in_nested_objects
+        // create user chats
+
+        await updateDoc(doc(db, "userChats", currentUser.uid), {
+          [combinedId + ".userInfo"]: {
+            uid: user.uid,
+            displayName: user.displayName,
+            photoURL: user.photoURL,
+          },
+          [combinedId + ".date"]: serverTimestamp(),
+        });
+
+        await updateDoc(doc(db, "userChats", user.uid), {
+          [combinedId + ".userInfo"]: {
+            uid: currentUser.uid,
+            displayName: currentUser.displayName,
+            photoURL: currentUser.photoURL,
+          },
+          [combinedId + ".date"]: serverTimestamp(),
+        });
+
+        await updateDoc(doc(db, "userChats", user.uid), {
+          [combinedId + ".userInfo"]: {
+            uid: currentUser.uid,
+            displayName: currentUser.displayName,
+            photoURL: currentUser.photoURL,
+          },
+          [combinedId + ".date"]: serverTimestamp(),
+        });
+      }
+    } catch (error) {}
     setUser(null);
     setUsername("");
   };
