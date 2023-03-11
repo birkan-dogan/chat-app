@@ -12,11 +12,13 @@ import {
   updateDoc,
   where,
 } from "firebase/firestore";
+import { useChatContext } from "../context/ChatContext";
 
 const Search = function () {
   const [username, setUsername] = useState(""); // for input
   const [user, setUser] = useState(null);
   const { currentUser } = useAuthContext();
+  const { dispatch } = useChatContext();
 
   const handleSearch = async function () {
     // queries on Firebase --> https://firebase.google.com/docs/firestore/query-data/queries#web-version-9
@@ -38,10 +40,11 @@ const Search = function () {
     e.code === "Enter" && handleSearch();
   };
 
-  const handleSelect = async function () {
+  const handleSelect = async function (user) {
     // check whether the group(chats in firestore) exists, if not create
 
     const combinedId = currentUser.uid + user.uid;
+    dispatch({ type: "Change_user", payload: user });
 
     try {
       const res = await getDoc(doc(db, "chats", combinedId));
@@ -97,7 +100,7 @@ const Search = function () {
         />
       </div>
       {user && (
-        <div className="userChat" onClick={handleSelect}>
+        <div className="userChat" onClick={() => handleSelect(user)}>
           <img src={user.photoURL} alt="" />
           <div className="userChatInfo">
             <span>{user.displayName}</span>
