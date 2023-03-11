@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { useAuthContext } from "../context/AuthContext";
 import { useChatContext } from "../context/ChatContext";
 import { db } from "../firebase";
-// import { getChats } from "../firebase";
 
 const Chats = () => {
   const [chats, setChats] = useState([]);
