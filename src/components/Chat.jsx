@@ -21,9 +21,7 @@ const Chat = function ({ element }) {
         <img src={Back} onClick={handleClick} style={{ cursor: "pointer" }} />
         <div className="userInfo">
           <img src={user?.photoURL} alt="" />
-          {(
-            user?.displayName[0].toUpperCase() + user?.displayName.slice(1)
-          ).slice(0, 10)}
+          {user?.displayName?.slice(0, 10)}
         </div>
         {/* username */}
         <div className="chatIcons">
