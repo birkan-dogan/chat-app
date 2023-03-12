@@ -1,7 +1,9 @@
+import { doc, onSnapshot } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { useAuthContext } from "../context/AuthContext";
 import { useChatContext } from "../context/ChatContext";
-import { getChats } from "../firebase";
+import { db } from "../firebase";
+// import { getChats } from "../firebase";
 
 const Chats = ({ element }) => {
   const [chats, setChats] = useState([]);
@@ -11,8 +13,16 @@ const Chats = ({ element }) => {
 
   useEffect(() => {
     // to see realtime updates on firestore, we can use onSnapshot() method
+    const getChats = () => {
+      const unsub = onSnapshot(doc(db, "userChats", currentUser.uid), (doc) => {
+        setChats(doc.data());
+      });
 
-    currentUser.uid && getChats(currentUser.uid, setChats);
+      return () => {
+        unsub();
+      };
+    };
+    currentUser.uid && getChats();
   }, [currentUser.uid]);
 
   const handleSelect = (user) => {
