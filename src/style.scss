@@ -14,6 +14,25 @@ $message-color: #34b7f1;
   align-items: center;
 }
 
+// responsive settings
+@mixin mobile {
+  @media screen and (max-width: 480px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media screen and (min-width: 1200px) {
+    @content;
+  }
+}
+
 // general settings
 * {
   margin: 0;
@@ -124,12 +143,16 @@ body {
   height: 100vh;
 
   .container {
-    border: 1px solid white;
-    border-radius: 10px;
-    width: 65%;
-    height: 80%;
+    // border: 1px solid white;
+    // border-radius: 10px;
+    width: 95%;
+    height: 95%;
     display: flex;
     overflow: hidden;
+    @include laptop {
+      width: 65%;
+      height: 80%;
+    }
 
     // Sidebar component
     .sidebar {
@@ -166,9 +189,10 @@ body {
           button {
             background-color: $form-background-color;
             color: #f2f2f2;
-            font-size: 10px;
-            padding: 5px;
+            font-size: 12px;
+            padding: 7px;
             border: none;
+            border-radius: 5px;
             cursor: pointer;
           }
         }
@@ -228,6 +252,7 @@ body {
 
     .chat {
       flex: 2;
+      display: none;
 
       .chatInfo {
         height: 50px;
@@ -238,6 +263,18 @@ body {
         padding: 10px;
         color: $light-color;
         font-weight: bold;
+
+        .userInfo {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+
+          img {
+            @include mobile {
+              display: none;
+            }
+          }
+        }
       }
 
       .chatIcons {
@@ -354,6 +391,16 @@ body {
           }
         }
       }
+    }
+  }
+
+  .mobile-responsive {
+    .sidebar {
+      display: none;
+    }
+
+    .chat {
+      display: block;
     }
   }
 }

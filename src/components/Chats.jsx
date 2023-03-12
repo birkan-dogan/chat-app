@@ -5,7 +5,7 @@ import { useChatContext } from "../context/ChatContext";
 import { db } from "../firebase";
 // import { getChats } from "../firebase";
 
-const Chats = () => {
+const Chats = ({ element }) => {
   const [chats, setChats] = useState([]);
 
   const { currentUser } = useAuthContext();
@@ -27,6 +27,7 @@ const Chats = () => {
 
   const handleSelect = (user) => {
     dispatch({ type: "Change_user", payload: user });
+    element.current.classList.add("mobile-responsive");
   };
 
   return (
@@ -41,7 +42,10 @@ const Chats = () => {
           >
             <img src={chat[1].userInfo.photoURL} alt="" />
             <div className="userChatInfo">
-              <span>{chat[1].userInfo.displayName}</span>
+              <span>
+                {chat[1].userInfo.displayName[0].toUpperCase() +
+                  chat[1].userInfo.displayName.slice(1)}
+              </span>
               <p>{chat[1].lastMessage?.text}</p>{" "}
               {/* latest message comes here */}
             </div>
