@@ -1,7 +1,7 @@
 import Input from "./Input";
-import Cam from "../images/cam.png";
-import Add from "../images/add.png";
-import More from "../images/more.png";
+import Cam from "../images/cam.svg";
+import Add from "../images/add.svg";
+import More from "../images/more.svg";
 import Back from "../images/backArrow.svg";
 import Messages from "./Messages";
 import { useChatContext } from "../context/ChatContext";

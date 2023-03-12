@@ -11,7 +11,9 @@ const Navbar = function () {
       <span className="logo">Chat App</span>
       <div className="user">
         <img src={currentUser.photoURL} alt="" />
-        <span>{name[0].toUpperCase() + name.slice(1, name.length)}</span>
+        <span>{(name[0].toUpperCase() + name.slice(1)).slice(0, 10)}</span>
+      </div>
+      <div className="user">
         <button
           onClick={() => {
             signOut(auth);
