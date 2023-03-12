@@ -19,11 +19,12 @@ const Chat = function ({ element }) {
     <div className="chat">
       <div className="chatInfo">
         <img src={Back} onClick={handleClick} style={{ cursor: "pointer" }} />
-        <span>
+        <div className="userInfo">
+          <img src={user?.photoURL} alt="" />
           {(
             user?.displayName[0].toUpperCase() + user?.displayName.slice(1)
           ).slice(0, 10)}
-        </span>
+        </div>
         {/* username */}
         <div className="chatIcons">
           <img src={Cam} alt="" />
