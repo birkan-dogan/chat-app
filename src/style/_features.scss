@@ -3,12 +3,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  //   box-shadow: 1px 1px 1px 10px $navbar-background;
-  width: 100%;
   padding-top: 20px;
+  margin: 5px 50px;
 
   .features-title {
-    // width: 50rem;
+    // width: 750px;
     text-align: center;
 
     h1 {
@@ -22,10 +21,8 @@
   }
 
   .features-icons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 50px;
+    @include flex-center;
+    gap: 30px;
     flex-wrap: wrap;
     padding: 50px;
     position: relative;
@@ -61,11 +58,73 @@
       width: 190px;
     }
     .right {
-      top: 0;
+      top: 0px;
+      right: 0px;
+    }
+  }
+
+  .how-it-works {
+    @include flex-center;
+    flex-direction: column;
+    margin-top: 50px;
+    position: relative;
+
+    .works-title {
+      text-align: center;
+
+      h1 {
+        font-size: 3rem;
+        margin-bottom: 15px;
+      }
+      p {
+        font-size: 1.5rem;
+        opacity: 0.7;
+      }
+    }
+    .works-icons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 50px;
+      flex-wrap: wrap;
+      padding: 50px;
+
+      .icon {
+        width: 350px;
+        height: 250px;
+        text-align: center;
+
+        img {
+          width: 60px;
+          height: 60px;
+        }
+        h2 {
+          margin: 10px 0;
+          transition: all 0.5;
+        }
+
+        p {
+          opacity: 0.7;
+        }
+
+        &:hover {
+          h2 {
+            color: $message-color;
+          }
+        }
+      }
+    }
+    .blob {
+      z-index: -1;
+      position: absolute;
+      width: 190px;
+    }
+    .right {
+      top: -120px;
       right: 0;
     }
     .left {
-      bottom: 30;
+      top: 100px;
       left: 0;
     }
   }

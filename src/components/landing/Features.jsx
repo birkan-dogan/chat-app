@@ -1,6 +1,11 @@
 import React from "react";
 import data from "../../helpers/featureData";
+// import images
 import blob from "../../images/featuresBackground.svg";
+import blueBlob from "../../images/blueblob.svg";
+import register from "../../images/register.svg";
+import setup from "../../images/setup.svg";
+import enjoy from "../../images/enjoy.svg";
 
 const Features = () => {
   return (
@@ -21,7 +26,6 @@ const Features = () => {
           </div>
         ))}
         <img src={blob} alt="" className="blob right" />
-        <img src={blob} alt="" className="blob left" />
       </div>
       <div className="how-it-works">
         <div className="works-title">
@@ -31,6 +35,25 @@ const Features = () => {
             just create an account and find your friends to chat ✨
           </p>
         </div>
+        <div className="works-icons">
+          <div className="icon">
+            <img src={register} alt="" />
+            <h2>Register</h2>
+            <p>Create an account</p>
+          </div>
+          <div className="icon">
+            <img src={setup} alt="" />
+            <h2>Setup your profile</h2>
+            <p>Enter username and upload a profile picture</p>
+          </div>
+          <div className="icon">
+            <img src={enjoy} alt="" />
+            <h2>Enjoy the features</h2>
+            <p>Ready to Chat!</p>
+          </div>
+        </div>
+
+        <img src={blueBlob} alt="" className="blob left" />
       </div>
     </div>
   );

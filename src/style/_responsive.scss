@@ -23,7 +23,7 @@
 }
 
 @media screen and (max-width: 620px) {
-  .landing {
+  header {
     margin: 15px;
   }
   header {
@@ -63,7 +63,7 @@
 }
 
 @include mobile {
-  .landing {
+  header {
     margin: 0px 10px;
   }
   .article {
@@ -98,6 +98,22 @@
     .features-icons {
       padding: 50px 10px;
 
+      .blob {
+        display: none;
+      }
+    }
+    .how-it-works {
+      padding: 0px 10px;
+      margin-top: 0px;
+
+      .works-icons {
+        gap: 1px;
+        padding: 30px;
+
+        .icon {
+          width: 250px;
+        }
+      }
       .blob {
         display: none;
       }

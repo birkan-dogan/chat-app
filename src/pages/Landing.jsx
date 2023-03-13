@@ -1,6 +1,7 @@
 import React from "react";
 import Article from "../components/landing/Article";
 import Features from "../components/landing/Features";
+import Footer from "../components/landing/Footer";
 import Header from "../components/landing/Header";
 
 const Landing = () => {
@@ -9,6 +10,7 @@ const Landing = () => {
       <Header />
       <Article />
       <Features />
+      <Footer />
     </div>
   );
 };
