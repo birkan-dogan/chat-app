@@ -13,6 +13,13 @@
       }
     }
   }
+  .landing {
+    .feature {
+      .features-icons {
+        gap: 10px;
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 620px) {
@@ -79,6 +86,17 @@
           width: 350px;
         }
       }
+    }
+  }
+
+  .feature {
+    .features-title {
+      h1 {
+        font-size: 32px;
+      }
+    }
+    .features-icons {
+      padding: 50px 10px;
     }
   }
 }
