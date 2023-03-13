@@ -97,6 +97,10 @@
     }
     .features-icons {
       padding: 50px 10px;
+
+      .blob {
+        display: none;
+      }
     }
   }
 }
