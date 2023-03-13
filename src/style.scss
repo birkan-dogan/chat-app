@@ -7,6 +7,9 @@ $navbar-background: #128c7e;
 $light-color: lightgray;
 $message-color: #34b7f1;
 
+// fonts
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
 // @mixins
 @mixin flex-center {
   display: flex;
@@ -41,7 +44,7 @@ $message-color: #34b7f1;
 }
 
 body {
-  font-family: sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 // Register/Login form
@@ -252,7 +255,9 @@ body {
 
     .chat {
       flex: 2;
-      display: none;
+      @include tablet {
+        display: none;
+      }
 
       .chatInfo {
         height: 50px;
@@ -397,12 +402,22 @@ body {
   }
 
   .mobile-responsive {
-    .sidebar {
-      display: none;
-    }
+    @include tablet {
+      .sidebar {
+        display: none;
+      }
 
-    .chat {
-      display: block;
+      .chat {
+        display: block;
+      }
     }
   }
 }
+
+.landing {
+  margin: 5px 50px;
+}
+
+@import "./style/header";
+@import "./style/article";
+@import "./style/responsive";
