@@ -1,0 +1,120 @@
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 5px 50px;
+  padding: 20px;
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+
+    img {
+      width: 60px;
+      height: 60px;
+    }
+
+    h4 {
+      font-weight: bold;
+      font-size: 32px;
+      color: #222222;
+    }
+  }
+
+  nav {
+    margin-right: 10px;
+    ul {
+      display: flex;
+      gap: 20px;
+      a {
+        font-size: 16px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.1s ease-in-out;
+
+        &:hover {
+          color: $navbar-background;
+        }
+      }
+    }
+  }
+
+  .buttons-div {
+    display: flex;
+    gap: 20px;
+
+    .buttons {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+
+      a {
+        text-decoration: none;
+        padding: 10px;
+        border-radius: 5px;
+        color: #222222;
+        font-weight: 600;
+        transition: all 0.5s;
+
+        &:hover {
+          color: $navbar-background;
+        }
+      }
+      .register {
+        background-color: $navbar-background;
+        color: white;
+        padding: 10px 20px;
+
+        &:hover {
+          background-color: rgba(18, 140, 126, 0.8);
+        }
+      }
+    }
+  }
+  .hamburger {
+    display: none;
+  }
+
+  .menu {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 50px;
+    width: 100%;
+    height: 70%;
+    background-color: #f2f2f2;
+
+    nav {
+      display: inline-block;
+      font-weight: bold;
+      text-align: center;
+      ul {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+
+    .buttons-div {
+      margin-left: 40px;
+      .buttons {
+        display: flex;
+        gap: 20px;
+      }
+    }
+
+    .hamburger {
+      img {
+        position: absolute;
+        top: 30px;
+        right: 27px;
+      }
+    }
+  }
+}
