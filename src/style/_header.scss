@@ -4,7 +4,7 @@ header {
   justify-content: space-between;
   gap: 10px;
   margin: 5px 50px;
-  padding: 20px;
+  padding: 20px 0px;
 
   .logo {
     display: flex;
@@ -14,6 +14,7 @@ header {
 
     img {
       width: 60px;
+      animation: App-logo-spin infinite 10s linear;
       height: 60px;
     }
 
@@ -70,6 +71,7 @@ header {
 
         &:hover {
           background-color: rgba(18, 140, 126, 0.8);
+          color: white;
         }
       }
     }
@@ -82,6 +84,7 @@ header {
     position: absolute;
     left: 0;
     top: 0;
+    z-index: 1;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -116,5 +119,14 @@ header {
         right: 27px;
       }
     }
+  }
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }

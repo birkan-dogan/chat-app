@@ -84,7 +84,7 @@ const Register = function () {
       <nav className="navigate-home" onClick={() => navigate("/")}>
         <img src={logo} alt="" />
       </nav>
-      <div className="formWrapper">
+      <div className="formWrapper" data-aos="fade-up" data-aos-duration="1000">
         <span className="logo">Create your account</span>
         <span className="title">It's totally free and super easy ✨</span>
         <button className="google" onClick={authGoogle}>

@@ -10,7 +10,7 @@ import Numbers from "./Numbers";
 
 const Features = () => {
   return (
-    <div className="feature">
+    <div className="feature" data-aos="fade-up" data-aos-duration="1000">
       <div className="features-title">
         <h1>Amazing features to make your life easier</h1>
         <p>
@@ -20,7 +20,12 @@ const Features = () => {
       </div>
       <div className="features-icons">
         {data.map((element) => (
-          <div className="icon" key={element.id}>
+          <div
+            className="icon"
+            key={element.id}
+            data-aos="fade-right"
+            data-aos-duration="1000"
+          >
             <img src={element.img} alt="" />
             <h2>{element.title}</h2>
             <p>{element.text}</p>
@@ -29,7 +34,11 @@ const Features = () => {
         <img src={blob} alt="" className="blob right" />
       </div>
       <Numbers />
-      <div className="how-it-works">
+      <div
+        className="how-it-works"
+        data-aos="fade-down"
+        data-aos-duration="1000"
+      >
         <div className="works-title">
           <h1>How it works?</h1>
           <p>

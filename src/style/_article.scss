@@ -83,6 +83,24 @@
       position: absolute;
       top: 0;
       right: 0;
+      animation: move 3s infinite linear;
     }
+  }
+}
+
+@keyframes move {
+  0% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  50% {
+    -webkit-transform: translateY(-30px);
+    transform: translateY(-30px);
+  }
+
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
   }
 }

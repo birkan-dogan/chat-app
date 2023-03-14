@@ -40,7 +40,7 @@ const Login = function () {
       <nav className="navigate-home" onClick={() => navigate("/")}>
         <img src={logo} alt="" />
       </nav>
-      <div className="formWrapper">
+      <div className="formWrapper" data-aos="fade-up" data-aos-duration="1000">
         <span className="logo">Sign in to your account</span>
         <span className="title">
           Login to your account for a faster checkout 🎯

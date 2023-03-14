@@ -20,6 +20,12 @@
       }
     }
   }
+
+  .formContainer {
+    .formWrapper {
+      margin-top: 100px;
+    }
+  }
 }
 
 @media screen and (max-width: 620px) {
@@ -122,5 +128,30 @@
 
   .numbers {
     gap: 50px;
+  }
+
+  .formContainer {
+    margin: 20px 0px;
+    .formWrapper {
+      padding: 10px;
+
+      .google {
+        width: 350px;
+      }
+
+      .email-thing {
+        width: 350px;
+
+        .thing {
+          width: 60px;
+        }
+      }
+
+      form {
+        input {
+          width: 350px;
+        }
+      }
+    }
   }
 }
