@@ -1,7 +1,6 @@
-// import Img from "../images/img.png";
-import Attach from "../images/attach.png";
-import { useAuthContext } from "../context/AuthContext";
-import { useChatContext } from "../context/ChatContext";
+import Attach from "../../images/attach.png";
+import { useAuthContext } from "../../context/AuthContext";
+import { useChatContext } from "../../context/ChatContext";
 import { useState } from "react";
 import {
   arrayUnion,
@@ -10,7 +9,7 @@ import {
   Timestamp,
   updateDoc,
 } from "firebase/firestore";
-import { db } from "../firebase";
+import { db } from "../../firebase";
 
 const Input = function () {
   const [text, setText] = useState("");
@@ -54,6 +53,7 @@ const Input = function () {
         placeholder="Type something..."
         onChange={(e) => setText(e.target.value)}
         value={text}
+        required
       />
       <div className="send">
         <input

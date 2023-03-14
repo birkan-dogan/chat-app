@@ -1,7 +1,7 @@
 import { doc, onSnapshot } from "firebase/firestore";
 import { useEffect, useState } from "react";
-import { useChatContext } from "../context/ChatContext";
-import { db } from "../firebase";
+import { useChatContext } from "../../context/ChatContext";
+import { db } from "../../firebase";
 import Message from "./Message";
 
 const Messages = function () {
@@ -17,7 +17,6 @@ const Messages = function () {
       unsub();
     };
   }, [data.chatId]);
-
 
   return (
     <div className="messages">

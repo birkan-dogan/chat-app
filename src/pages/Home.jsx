@@ -1,6 +1,6 @@
 import { useRef } from "react";
-import Chat from "../components/Chat";
-import Sidebar from "../components/Sidebar";
+import Chat from "../components/chat/Chat";
+import Sidebar from "../components/chat/Sidebar";
 
 const Home = function () {
   const element = useRef(null);

@@ -10,19 +10,19 @@ const features = [
     id: 1,
     img: messaging,
     title: "Crafted for App Landing",
-    text: "Users can send messages to their friends and family members instantly, whether they're in the same room or on opposite sides of the world.",
+    text: "Users can send messages to their friends and family members instantly.",
   },
   {
     id: 2,
     img: design,
     title: "High-quality Design",
-    text: "Great user interface that is easy to use and navigate. Users can quickly find the features they need, such as composing a new message, selecting contacts to chat with, and attaching images or voice messages to their messages",
+    text: "Great user interface that is easy to use and navigate. Users can quickly find the features they need.",
   },
   {
     id: 3,
     img: cloud,
     title: "Media sharing",
-    text: "Makes it easy for users to share photos of their daily life, send funny memes, or even record short voice messages to send to friends and family members.",
+    text: "Share photos of daily life, send funny caps, or even record short voice messages to send to friends and family members.",
   },
   {
     id: 4,
@@ -34,7 +34,7 @@ const features = [
     id: 5,
     img: settings,
     title: "Personalization",
-    text: "The app allows users to customize their messaging experience by selecting a unique username, setting a profile picture, and choosing their preferred color scheme for the app.",
+    text: "The app allows users to customize their messaging experience by selecting a unique username, setting a profile picture.",
   },
   {
     id: 6,
