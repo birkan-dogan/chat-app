@@ -6,6 +6,7 @@ import blueBlob from "../../images/blueblob.svg";
 import register from "../../images/register.svg";
 import setup from "../../images/setup.svg";
 import enjoy from "../../images/enjoy.svg";
+import Numbers from "./Numbers";
 
 const Features = () => {
   return (
@@ -27,6 +28,7 @@ const Features = () => {
         ))}
         <img src={blob} alt="" className="blob right" />
       </div>
+      <Numbers />
       <div className="how-it-works">
         <div className="works-title">
           <h1>How it works?</h1>

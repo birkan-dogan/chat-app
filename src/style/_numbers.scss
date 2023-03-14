@@ -1,0 +1,32 @@
+.numbers {
+  @include flex-center();
+  flex-wrap: wrap;
+  gap: 150px;
+  min-height: 200px;
+  margin-bottom: 50px;
+  width: 100%;
+  padding: 10px;
+  position: relative;
+
+  .number {
+    @include flex-center();
+    flex-direction: column;
+    gap: 5px;
+
+    img {
+      width: 70px;
+    }
+
+    p {
+      opacity: 0.7;
+    }
+  }
+
+  .blob {
+    position: absolute;
+    width: 250px;
+    z-index: -1;
+    top: 0;
+    left: 0;
+  }
+}
