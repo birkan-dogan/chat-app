@@ -1,9 +1,12 @@
 import { signOut } from "firebase/auth";
-import { useAuthContext } from "../context/AuthContext";
-import { auth } from "../firebase";
+import { useNavigate } from "react-router-dom";
+import { useAuthContext } from "../../context/AuthContext";
+import { auth } from "../../firebase";
 
 const Navbar = function () {
   const { currentUser } = useAuthContext(); // consuming context
+
+  const navigate = useNavigate();
 
   const name = currentUser.displayName.toLowerCase();
   return (
@@ -17,6 +20,7 @@ const Navbar = function () {
         <button
           onClick={() => {
             signOut(auth);
+            navigate("/");
           }}
         >
           Logout

@@ -1,0 +1,150 @@
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 5px 50px;
+  padding: 20px 0px;
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+
+    img {
+      width: 60px;
+      // animation: App-logo-spin infinite 10s linear;
+      height: 60px;
+    }
+
+    h4 {
+      font-weight: bold;
+      font-size: 32px;
+      color: #222222;
+    }
+  }
+
+  nav {
+    margin-right: 10px;
+    ul {
+      display: flex;
+      gap: 20px;
+      a {
+        font-size: 16px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.1s ease-in-out;
+        text-decoration: none;
+        color: #222222;
+
+        &:hover {
+          color: $navbar-background;
+        }
+      }
+    }
+  }
+
+  .buttons-div {
+    display: flex;
+    gap: 20px;
+
+    .buttons {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+
+      a {
+        text-decoration: none;
+        padding: 10px;
+        border-radius: 5px;
+        color: #222222;
+        font-weight: 600;
+        transition: all 0.5s;
+
+        &:hover {
+          color: $navbar-background;
+        }
+      }
+      .register {
+        background-color: $navbar-background;
+        color: white;
+        padding: 10px 20px;
+
+        &:hover {
+          background-color: rgba(18, 140, 126, 0.8);
+          color: white;
+        }
+      }
+    }
+  }
+  .hamburger {
+    display: none;
+  }
+
+  .menu {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 50px;
+    width: 100%;
+    height: 70%;
+    background-color: #f2f2f2;
+
+    nav {
+      display: inline-block;
+      font-weight: bold;
+      text-decoration: underline wavy;
+      text-underline-offset: 10px;
+      opacity: 0.8;
+      ul {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+      }
+    }
+
+    .buttons-div {
+      .buttons {
+        display: flex;
+        gap: 20px;
+        opacity: 0.8;
+      }
+    }
+
+    .hamburger {
+      img {
+        position: absolute;
+        top: 25px;
+        right: 10px;
+
+        &:hover {
+          animation: close-spin infinite 5s linear;
+        }
+      }
+    }
+  }
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes close-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

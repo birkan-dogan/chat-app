@@ -1,10 +1,10 @@
 import Input from "./Input";
-import Cam from "../images/cam.svg";
-import Add from "../images/add.svg";
-import More from "../images/more.svg";
-import Back from "../images/backArrow.svg";
+import Cam from "../../images/cam.svg";
+import Add from "../../images/add.svg";
+import More from "../../images/more.svg";
+import Back from "../../images/backArrow.svg";
 import Messages from "./Messages";
-import { useChatContext } from "../context/ChatContext";
+import { useChatContext } from "../../context/ChatContext";
 
 const Chat = function ({ element }) {
   const {
@@ -15,10 +15,14 @@ const Chat = function ({ element }) {
     element.current.classList.remove("mobile-responsive");
   };
 
+  let w = window.innerWidth;
+
   return (
     <div className="chat">
       <div className="chatInfo">
-        <img src={Back} onClick={handleClick} style={{ cursor: "pointer" }} />
+        {w <= 768 && (
+          <img src={Back} onClick={handleClick} style={{ cursor: "pointer" }} />
+        )}
         <div className="userInfo">
           <img src={user?.photoURL} alt="" />
           {user?.displayName?.slice(0, 10)}
