@@ -99,32 +99,48 @@ header {
     nav {
       display: inline-block;
       font-weight: bold;
-      text-align: center;
+      text-decoration: underline wavy;
+      text-underline-offset: 10px;
+      opacity: 0.8;
       ul {
         display: flex;
         flex-direction: column;
+        gap: 30px;
       }
     }
 
     .buttons-div {
-      margin-left: 40px;
       .buttons {
         display: flex;
         gap: 20px;
+        opacity: 0.8;
       }
     }
 
     .hamburger {
       img {
         position: absolute;
-        top: 30px;
-        right: 27px;
+        top: 25px;
+        right: 10px;
+
+        &:hover {
+          animation: close-spin infinite 5s linear;
+        }
       }
     }
   }
 }
 
 @keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes close-spin {
   from {
     transform: rotate(0deg);
   }
