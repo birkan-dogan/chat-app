@@ -15,7 +15,7 @@ const Numbers = () => {
   });
 
   return (
-    <div className="numbers">
+    <div className="numbers" id="works">
       <div className="number">
         <img src={setup} alt="" />
         <AnimatedNumbers

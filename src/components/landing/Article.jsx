@@ -10,7 +10,7 @@ const Article = () => {
   };
 
   return (
-    <div className="article">
+    <div className="article" id="about">
       <main>
         <h1>CHAT APP</h1> <br />
         <h1>FOR</h1>

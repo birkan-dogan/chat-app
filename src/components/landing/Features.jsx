@@ -10,7 +10,12 @@ import Numbers from "./Numbers";
 
 const Features = () => {
   return (
-    <div className="feature" data-aos="fade-up" data-aos-duration="1000">
+    <div
+      className="feature"
+      data-aos="fade-up"
+      data-aos-duration="1000"
+      id="features"
+    >
       <div className="features-title">
         <h1>Amazing features to make your life easier</h1>
         <p>

@@ -15,10 +15,10 @@ const Header = () => {
       </div>
       <nav>
         <ul>
-          <a>Features</a>
-          <a>About</a>
-          <a>How It Works</a>
-          <a>Support</a>
+          <a href="#features">Features</a>
+          <a href="#about">About</a>
+          <a href="#works">How It Works</a>
+          <a href="#support">Support</a>
         </ul>
       </nav>
       <div className="buttons-div">

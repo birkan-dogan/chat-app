@@ -3,8 +3,12 @@
 .formContainer {
   @include flex-center();
   flex-wrap: wrap;
-  margin: 20px 0px;
   position: relative;
+  background-image: url("../images/WorldMap.svg");
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+  min-height: 100vh;
 
   .navigate-home {
     img {
