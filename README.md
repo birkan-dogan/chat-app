@@ -1,70 +1,54 @@
-# Getting Started with Create React App
+# Chat App 🤙
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Table of contents
 
-## Available Scripts
+- [Summary](#summary)
+- [Screenshot](#screenshot)
+- [Link](#link)
+- [Built with](#built-with)
+- [Utility Links](#utility-links)
 
-In the project directory, you can run:
+## Summary
 
-### `npm start`
+> **I've created a chat application. Users can find their friends and they can send text messages each other after signing up the app. All chat process works synchronously thanks to the SnapShot method of Firestore.**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- I have worked with HTML, SCSS, JavaScript, React.js and Firebase to create this good-looking fully-responsive interactive page 🎯.
+- I've used the advantages of React.js to manipulate the DOM efficiently 🎢.
+- I like working with Firestore to handle database operations, the structure of firestore helps us to manipulate data, especially making read process is easy thanks to the collection logic 🤝.
+- Also love to use firebase-auth for authentication process. I am thankful to Firebase for providing us the social media auth, I really enjoy to use Google auth in my project 🛡.
+- In CSS process, I've used SCSS and SCSS helps me to control all color variables and breakpoints for responsive design in one place. Thanks to nested structure of SCSS, I wrote less code in main parts 🌌.
+  > **What's next?**
+- Images and voices can be sent as a message.
+- Also, users can translate the text message to the voice.
+- And, I just want to integrate chatGPT api and this will take the project to the next level 🔥.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Link
 
-### `npm test`
+<a href="https://converso-app.vercel.app/">Live Version of the project</a>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<hr>
 
-### `npm run build`
+## Screenshot
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<p align="center">
+<a href="https://converso-app.vercel.app/"><img  src="./chatApp.png" alt="chat app"></a>
+</p>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<hr>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Built with
 
-### `npm run eject`
+- HTML
+- CSS
+- JavaScript
+- React.js
+- Firebase
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Utility Links
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+> [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)  
+> [React.js](https://beta.reactjs.org/)  
+> [Firebase](https://firebase.google.com/docs/build?hl=en)  
+> [AOS animate](https://github.com/michalsnik/aos)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<center> Keep Building 🚀</center>
