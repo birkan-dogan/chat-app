@@ -1,6 +1,11 @@
-import { signInWithEmailAndPassword } from "firebase/auth";
+import {
+  GoogleAuthProvider,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+} from "firebase/auth";
 import { Link, useNavigate } from "react-router-dom";
-import { auth } from "../firebase";
+import { auth, provider } from "../firebase";
+import logo from "../images/chat.png";
 
 const Login = function () {
   const navigate = useNavigate();
@@ -12,20 +17,45 @@ const Login = function () {
 
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      navigate("/");
+      navigate("/chat");
     } catch (error) {
       console.log(error);
     }
   };
 
+  const authGoogle = async function () {
+    try {
+      const result = await signInWithPopup(auth, provider);
+      const credential = GoogleAuthProvider.credentialFromResult(result);
+      const token = credential.accessToken;
+      const user = result.user;
+      navigate("/chat");
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
   return (
     <div className="formContainer">
-      <div className="formWrapper">
-        <span className="logo">Chat App</span>
-        <span className="title">Login</span>
+      <nav className="navigate-home" onClick={() => navigate("/")}>
+        <img src={logo} alt="" />
+      </nav>
+      <div className="formWrapper" data-aos="fade-up" data-aos-duration="1000">
+        <span className="logo">Sign in to your account</span>
+        <span className="title">
+          Login to your account for a faster checkout 🎯
+        </span>
+        <button className="google" onClick={authGoogle}>
+          Sign In with Google
+        </button>
+        <div className="email-thing">
+          <div className="thing"></div>
+          <p>Or, sign in with your email</p>
+          <div className="thing"></div>
+        </div>
         <form onSubmit={handleSubmit}>
-          <input type="email" placeholder="email" required />
-          <input type="password" placeholder="password" required />
+          <input type="email" placeholder="Enter your email" required />
+          <input type="password" placeholder="Enter your password" required />
           <button>Sign In</button>
         </form>
         <p>

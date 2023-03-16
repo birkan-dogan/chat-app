@@ -1,9 +1,15 @@
 import Add from "../images/addAvatar.svg";
 import { Link, useNavigate } from "react-router-dom";
-import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { auth, db, storage } from "../firebase";
+import {
+  createUserWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup,
+  updateProfile,
+} from "firebase/auth";
+import { auth, db, provider, storage } from "../firebase";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import { doc, setDoc } from "firebase/firestore";
+import logo from "../images/chat.png";
 
 const Register = function () {
   const navigate = useNavigate();
@@ -43,7 +49,7 @@ const Register = function () {
             });
 
             await setDoc(doc(db, "userChats", res.user.uid), {});
-            navigate("/");
+            navigate("/chat");
           });
         }
       );
@@ -52,11 +58,43 @@ const Register = function () {
     }
   };
 
+  const authGoogle = async function () {
+    try {
+      const result = await signInWithPopup(auth, provider);
+      const credential = GoogleAuthProvider.credentialFromResult(result);
+      const token = credential.accessToken;
+      const user = result.user;
+
+      await setDoc(doc(db, "users", token), {
+        uid: token,
+        displayName: user.displayName,
+        email: user.email,
+        photoURL: user.photoURL,
+      });
+      await setDoc(doc(db, "userChats", token), {});
+
+      navigate("/chat");
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
   return (
     <div className="formContainer">
-      <div className="formWrapper">
-        <span className="logo">Chat App</span>
-        <span className="title">Register</span>
+      <nav className="navigate-home" onClick={() => navigate("/")}>
+        <img src={logo} alt="" />
+      </nav>
+      <div className="formWrapper" data-aos="fade-up" data-aos-duration="1000">
+        <span className="logo">Create your account</span>
+        <span className="title">It's totally free and super easy ✨</span>
+        <button className="google" onClick={authGoogle}>
+          Sign up with Google
+        </button>
+        <div className="email-thing">
+          <div className="thing"></div>
+          <p>Or, sign up with your email</p>
+          <div className="thing"></div>
+        </div>
         <form onSubmit={handleSubmit}>
           <input type="text" placeholder="display name" />
           <input type="email" placeholder="email" />

@@ -1,6 +1,6 @@
-import { useState } from "react";
-import { useAuthContext } from "../context/AuthContext"; // need the currentUser.uid
-import { db } from "../firebase";
+import { useEffect, useState } from "react";
+import { useAuthContext } from "../../context/AuthContext"; // need the currentUser.uid
+import { db } from "../../firebase";
 import {
   collection,
   doc,
@@ -12,10 +12,10 @@ import {
   updateDoc,
   where,
 } from "firebase/firestore";
-import { useChatContext } from "../context/ChatContext";
+import { useChatContext } from "../../context/ChatContext";
 
 const Search = function () {
-  const [username, setUsername] = useState(""); // for input
+  const [username, setUsername] = useState("Birkan"); // for input
   const [user, setUser] = useState(null);
   const { currentUser } = useAuthContext();
   const { dispatch } = useChatContext();
@@ -90,6 +90,10 @@ const Search = function () {
     setUser(null);
     setUsername("");
   };
+
+  useEffect(() => {
+    handleSearch();
+  }, []);
 
   return (
     <div className="search">

@@ -1,0 +1,143 @@
+// Register/Login form
+
+.formContainer {
+  @include flex-center();
+  flex-wrap: wrap;
+  position: relative;
+  background-image: url("../images/WorldMap.svg");
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+  min-height: 100vh;
+
+  .navigate-home {
+    img {
+      width: 60px;
+      position: absolute;
+      top: 5px;
+      left: 20px;
+      animation: App-logo-spin infinite 10s linear;
+      cursor: pointer;
+    }
+  }
+
+  .formWrapper {
+    background-color: #f8fafb;
+    padding: 50px;
+    border-radius: 10px;
+    @include flex-center();
+    flex-direction: column;
+    gap: 20px;
+
+    .logo {
+      color: $logo-color;
+      font-size: 24px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    .title {
+      font-size: 16px;
+      color: $logo-color;
+      opacity: 0.8;
+    }
+
+    .google {
+      border: 1px solid gray;
+      border-radius: 10px;
+      width: 420px;
+      background: linear-gradient(to right, #db4437 0%, #4285f4 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      padding: 10px;
+      cursor: pointer;
+      font-size: 20px;
+    }
+
+    .email-thing {
+      @include flex-center();
+      justify-content: space-between;
+      width: 420px;
+      .thing {
+        width: 100px;
+        height: 3px;
+        background-color: gray;
+        opacity: 0.5;
+      }
+      p {
+        opacity: 0.6;
+        position: relative;
+        bottom: 6px;
+      }
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+
+      input {
+        padding: 15px;
+        border: none;
+        width: 420px;
+        border: 1px solid $message-color;
+        border-radius: 10px;
+        font-size: 16px;
+        font-weight: bold;
+        background-color: transparent;
+
+        &::placeholder {
+          color: rgb(175, 175, 175);
+          padding-left: 10px;
+        }
+        &:focus {
+          outline: none;
+        }
+      }
+
+      .file-upload {
+        display: none;
+      }
+
+      button {
+        background-color: $navbar-background;
+        color: white;
+        padding: 10px;
+        font-weight: bold;
+        border: none;
+        cursor: pointer;
+        &:hover {
+          background-color: rgba(18, 140, 126, 0.8);
+          color: white;
+        }
+      }
+
+      label {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: $logo-color;
+        font-size: 12px;
+        cursor: pointer;
+
+        img {
+          width: 44px;
+        }
+      }
+    }
+
+    p {
+      color: $form-background-color;
+      font-size: 14px;
+      font-weight: bold;
+      margin-top: 10px;
+      cursor: pointer;
+
+      a {
+        text-decoration: underline wavy;
+        text-underline-offset: 10px;
+        color: $form-background-color;
+      }
+    }
+  }
+}

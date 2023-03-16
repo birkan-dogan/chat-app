@@ -1,0 +1,157 @@
+@media screen and (max-width: 920px) {
+  header {
+    gap: 5px;
+    nav {
+      display: none;
+    }
+    .hamburger {
+      display: inline-block;
+      cursor: pointer;
+      img {
+        width: 50px;
+        height: 50px;
+      }
+    }
+  }
+  .landing {
+    .feature {
+      .features-icons {
+        gap: 10px;
+      }
+    }
+  }
+
+  .formContainer {
+    .formWrapper {
+      margin-top: 100px;
+    }
+  }
+}
+
+@media screen and (max-width: 620px) {
+  header {
+    margin: 15px;
+  }
+  header {
+    .buttons-div {
+      .buttons {
+        display: none;
+      }
+    }
+  }
+
+  .article {
+    main {
+      h1 {
+        font-size: 40px;
+      }
+      .rotating-text {
+        font-size: 40px;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+      }
+    }
+    .images {
+      .blob {
+        width: 300px;
+      }
+      .application {
+        width: 300px;
+      }
+    }
+  }
+}
+
+@include mobile {
+  header {
+    margin: 0px 10px;
+  }
+  .article {
+    main {
+      width: 350px;
+      line-height: 40px;
+      padding: 10px;
+
+      h1 {
+        font-size: 24px;
+      }
+      .rotating-text {
+        font-size: 24px;
+      }
+      p {
+        margin-top: 10px;
+      }
+      form {
+        input {
+          width: 350px;
+        }
+      }
+    }
+  }
+
+  .feature {
+    .features-title {
+      h1 {
+        font-size: 32px;
+      }
+    }
+    .features-icons {
+      padding: 50px 10px;
+
+      .blob {
+        display: none;
+      }
+    }
+    .how-it-works {
+      padding: 0px 10px;
+      margin-top: 0px;
+
+      .works-icons {
+        gap: 1px;
+        padding: 30px;
+
+        .icon {
+          width: 250px;
+        }
+      }
+      .blob {
+        display: none;
+      }
+    }
+  }
+
+  .numbers {
+    gap: 50px;
+  }
+
+  .formContainer {
+    // margin: 20px 0px;
+    .formWrapper {
+      padding: 10px;
+
+      .google {
+        width: 350px;
+      }
+
+      .email-thing {
+        width: 350px;
+
+        .thing {
+          width: 60px;
+        }
+      }
+
+      form {
+        input {
+          width: 350px;
+        }
+      }
+    }
+  }
+}
