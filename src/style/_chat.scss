@@ -231,6 +231,7 @@
         border-left: 10px solid #222222;
         @include flex-center();
         justify-content: space-between;
+        position: relative;
 
         input {
           border: none;
@@ -245,10 +246,26 @@
             color: $light-color;
           }
         }
+
+        .emoji {
+          @include flex-center;
+          position: absolute;
+          right: 0px;
+          bottom: 45px;
+          width: 100%;
+          height: 500px;
+        }
         .send {
           display: flex;
           align-items: center;
           gap: 10px;
+
+          .emoji-icon {
+            opacity: 0.6;
+            position: relative;
+            bottom: 2px;
+            right: -15px;
+          }
 
           img {
             height: 24px;
