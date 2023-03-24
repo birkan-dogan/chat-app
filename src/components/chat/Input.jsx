@@ -10,9 +10,11 @@ import {
   updateDoc,
 } from "firebase/firestore";
 import { db } from "../../firebase";
+import Emoji from "./Emoji";
 
 const Input = function () {
   const [text, setText] = useState("");
+  const [showPicker, setShowPicker] = useState(false);
 
   const { currentUser } = useAuthContext();
   const { data } = useChatContext();
@@ -54,6 +56,7 @@ const Input = function () {
         onChange={(e) => setText(e.target.value)}
         value={text}
         required
+        onClick={() => setShowPicker(false)}
       />
       <div className="send">
         <input
@@ -61,7 +64,14 @@ const Input = function () {
           style={{ display: "none" }}
           id="input-file"
           disabled
+          onClick={() => setShowPicker(false)}
         />
+        <img
+          className="emoji-icon"
+          src="https://icons.getbootstrap.com/assets/icons/emoji-smile.svg"
+          onClick={() => setShowPicker(!showPicker)}
+        />
+        <div>{showPicker && <Emoji setText={setText} />}</div>
         <label htmlFor="input-file">
           <img src={Attach} alt="" />
         </label>
